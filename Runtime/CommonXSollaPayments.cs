@@ -15,10 +15,7 @@ namespace MirraGames.SDK.XSolla
 
         private ProductData[] products = Array.Empty<ProductData>();
 
-        public CommonXSollaPayments(IData data) : base(data)
-        {
-            SetInitialized();
-        }
+        public CommonXSollaPayments(IData data) : base(data) { }
 
         protected override ProductData GetProductDataImpl(string productTag)
         {

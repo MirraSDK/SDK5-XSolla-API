@@ -3,7 +3,9 @@
     "rootNamespace": "MirraGames.SDK.XSolla.Android",
     "references": [
         "MirraGames.SDK.Common",
-        "MirraGames.SDK.XSolla"
+        "MirraGames.SDK.XSolla",
+        "Xsolla",
+        "XsollaBrowser"
     ],
     "includePlatforms": [
         "Android",
