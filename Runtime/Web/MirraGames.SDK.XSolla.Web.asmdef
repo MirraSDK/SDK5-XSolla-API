@@ -1,0 +1,24 @@
+{
+    "name": "MirraGames.SDK.XSolla.Web",
+    "rootNamespace": "MirraGames.SDK.XSolla.Web",
+    "references": [
+        "MirraGames.SDK.Common",
+        "MirraGames.SDK.XSolla",
+        "Xsolla",
+        "XsollaBrowser"
+    ],
+    "includePlatforms": [
+        "Editor",
+        "WebGL"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_WEBGL"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
