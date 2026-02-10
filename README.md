@@ -1,0 +1,1 @@
+https://developers.xsolla.com/sdk/unity/integrate-complete-solution/install-sdk/

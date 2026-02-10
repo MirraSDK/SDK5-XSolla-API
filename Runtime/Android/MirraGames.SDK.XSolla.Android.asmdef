@@ -1,18 +1,22 @@
 {
-    "name": "MirraGames.SDK.XSolla",
-    "rootNamespace": "MirraGames.SDK.XSolla",
+    "name": "MirraGames.SDK.XSolla.Android",
+    "rootNamespace": "MirraGames.SDK.XSolla.Android",
     "references": [
         "MirraGames.SDK.Common",
-        "Xsolla",
-        "XsollaBrowser"
+        "MirraGames.SDK.XSolla"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Android",
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "UNITY_ANDROID"
+    ],
     "versionDefines": [],
     "noEngineReferences": false
 }
