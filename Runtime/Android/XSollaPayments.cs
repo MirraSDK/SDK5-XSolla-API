@@ -1,6 +1,6 @@
 using MirraGames.SDK.Common;
-using Newtonsoft.Json.Linq;
 using System;
+using Xsolla.Auth;
 using Xsolla.Core;
 
 namespace MirraGames.SDK.XSolla.Android
@@ -8,28 +8,32 @@ namespace MirraGames.SDK.XSolla.Android
     [Provider(typeof(IPayments))]
     public class XSollaPayments : CommonXSollaPayments
     {
-        public XSollaPayments(XSollaPayments_Configuration configuration, IData data) : base(data)
+        public XSollaPayments(IData data) : base(data)
         {
-            try
-            {
-                XsollaToken.Create(configuration.Token);
-                GetItems();
-            }
-            catch (Exception exception)
-            {
-                Logger.CreateError(this, $"Failed to create XSolla token: {exception}");
-                GetItems();
-            }
+            GetItems();
         }
 
         protected override void InvokeLogin(Action onSuccess, Action onError)
         {
-            onSuccess?.Invoke();
+            if (XsollaAuth.IsUserAuthenticated())
+            {
+                onSuccess?.Invoke();
+                return;
+            }
+
+            XsollaAuth.AuthViaDeviceID(
+                onSuccess: () => onSuccess?.Invoke(),
+                onError: (error) =>
+                {
+                    Logger.CreateError(this, $"Failed to authenticate via device ID: {error}");
+                    onError?.Invoke();
+                }
+            );
         }
 
         protected override bool IsLoggedIn()
         {
-            return true;
+            return XsollaAuth.IsUserAuthenticated();
         }
     }
 }
